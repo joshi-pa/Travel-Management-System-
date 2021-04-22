@@ -49,6 +49,55 @@ COUNTRY NUMBER REFERENCES COUNTRY(COUNTRY_id) ON DELETE CASCADE
 )';    
 
 END IF;
+SELECT count(*) into nCount FROM user_tables where table_name = 'PAYMENT';
+IF(nCount > 0)
+THEN
+    DBMS_OUTPUT.PUT_LINE('TABLE USER_ENTITY ALREADY EXISTS');
+ELSE
+    EXECUTE IMMEDIATE 'CREATE TABLE PAYMENT(
+payment_id INT PRIMARY KEY,
+  payment_type_id INT REFERENCES PAYMENT_TYPE(payment_type_id) ON DELETE CASCADE
+)';    
+
+END IF;
+
+SELECT count(*) into nCount FROM user_tables where table_name = 'PAYMENT_TYPE';
+IF(nCount > 0)
+THEN
+    DBMS_OUTPUT.PUT_LINE('TABLE COUNTRY ALREADY EXISTS');
+ELSE
+    EXECUTE IMMEDIATE 'CREATE TABLE PAYMENT_TYPE (
+payment_type_id INT PRIMARY KEY,
+  payment_type_desc VARCHAR(20) NOT NULL
+)';    
+
+END IF;
+
+SELECT count(*) into nCount FROM user_tables where table_name = 'TOURIST_ATTRACTIONS';
+IF(nCount > 0)
+THEN
+    DBMS_OUTPUT.PUT_LINE('TABLE STATES ALREADY EXISTS');
+ELSE
+    EXECUTE IMMEDIATE 'CREATE TABLE TOURIST_ATTRACTIONS (
+tourist_attraction_id INT PRIMARY KEY,
+  tourist_attraction_name varchar(100) NOT NULL,
+  city_id INT REFERENCES  CITY(city_id) ON DELETE CASCADE
+)';    
+
+END IF;
+
+SELECT count(*) into nCount FROM user_tables where table_name = 'BOOKING_STATUS';
+IF(nCount > 0)
+THEN
+    DBMS_OUTPUT.PUT_LINE('TABLE STATES ALREADY EXISTS');
+ELSE
+    EXECUTE IMMEDIATE 'CREATE TABLE BOOKING_STATUS (
+booking_status_id INT PRIMARY KEY,
+  booking_staus VARCHAR(20) NOT NULL
+)';    
+
+END IF;
+
 
 
 EXCEPTION
