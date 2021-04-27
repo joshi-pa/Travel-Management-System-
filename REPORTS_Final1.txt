@@ -1,0 +1,56 @@
+-- HOTEL CHAIN AND CITIES
+SELECT H.HOTEL_ID, H.HOTEL_NAME, H.ADDRESS,  HC.HOTEL_CHAIN_NAME, C.CITY_NAME
+FROM HOTEL H JOIN HOTEL_CHAIN HC ON H.HOTEL_CHAIN_ID = HC.HOTEL_CHAIN_ID
+JOIN CITY C ON H.CITY_ID = C.CITY_ID;
+
+
+----TOTAL ROOMS BOOKED IN A HOTEL 
+SELECT COUNT(*) AS Total_Rooms_Booked		-- sum of total rooms
+	FROM booking
+	WHERE hotel_id = 303;
+    
+    
+    
+    
+    -----BOOKING DETAILS
+SELECT
+    b.booking_id,
+    h.hotel_name,
+     u.first_name,
+    u.last_name,
+    u.email_id,
+    (B.check_OUT_date - B.CHECK_IN_DATE) NO_OF_DAYS,
+    b.total_amount,
+    pt.payment_type_desc
+    
+FROM
+         booking b
+    JOIN user_ENTITY u ON b.user_ID = u.user_id
+    JOIN PAYMENT P ON B.PAYMENT_ID = P.PAYMENT_ID
+    JOIN PAYMENT_TYPE PT ON P.PAYMENT_TYPE_ID= PT.PAYMENT_TYPE_ID
+    JOIN HOTEL H ON B.HOTEL_ID =H.HOTEL_ID;
+    
+    
+
+---- TOURIST ATTRACTIONS IN CITY AND REALTED HOTELS
+SELECT
+    t.tourist_attraction_name,
+    c.city_name,
+    h.hotel_NAME
+FROM
+         tourist_attractions t
+    JOIN city c ON t.city_id = c.city_id
+    JOIN HOTEL H ON H.CITY_ID = T.CITY_ID
+    ORDER BY T.TOURIST_ATTRACTION_NAME;
+    
+    
+    
+    
+
+--BOOKING DETAILS OF ROOMS AND RATINGS GIVEN BY USERS  
+
+SELECT R.BOOKING_ID, R.REVIEW_RATING GIVEN_RATING, H.HOTEL_NAME,u.FIRST_NAME, U.LAST_NAME, B.CHECK_IN_DATE, B.CHECK_OUT_DATE
+FROM BOOKING B JOIN REVIEWS R ON B.BOOKING_ID = R.BOOKING_ID
+JOIN HOTEL H ON B.HOTEL_ID = H.HOTEL_ID
+JOIN USER_ENTITY U ON B.USER_ID = U.USER_ID
+ORDER BY R.REVIEW_RATING DESC;
