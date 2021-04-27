@@ -120,6 +120,71 @@ VALUES ('Marriot',504,'Andheri East','10 AM','11 PM','919112082702','402','5');
 commit;
 
 
+INSERT INTO ROOM_TYPE (ROOM_DESCRIPTION,COST_PER_DAY,SMOKE_FRIENDLY,PET_FRIENDLY) 
+VALUES('Single','5000.00',1,1);
+INSERT INTO ROOM_TYPE (ROOM_DESCRIPTION,COST_PER_DAY,SMOKE_FRIENDLY,PET_FRIENDLY) 
+VALUES('Double','10000.00',1,1); 
+INSERT INTO ROOM_TYPE (ROOM_DESCRIPTION,COST_PER_DAY,SMOKE_FRIENDLY,PET_FRIENDLY) 
+VALUES('Normal suite','22200.00',1,1); 
+INSERT INTO ROOM_TYPE (ROOM_DESCRIPTION,COST_PER_DAY,SMOKE_FRIENDLY,PET_FRIENDLY) 
+VALUES('Luxury suite','30000.00',1,1);
+commit;
+
+
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (100, 303 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (100, 304 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (100, 305 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (100, 306 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (100, 307 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (101, 303 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (101, 304 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (101, 305 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (101, 306 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (101, 307 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (102, 303 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (102, 304 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (102, 305 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (103, 306 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (102, 307 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (100, 303 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (101, 304 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (103, 305 );
+INSERT INTO ROOM (room_type_id, hotel_id) VALUES (102, 306 );
+COMMIT;
+
+
+
+INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
+VALUES ('26-SEP-2020','27- SEP-2020','29-SEP-2020',1000,100.0, 1, 303,1,1);
+INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
+VALUES ('25-SEP-2020','26- SEP-2020','28-SEP-2020',1001,100.0, 1, 304,2,2);
+INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
+VALUES ('24-SEP-2020','25- SEP-2020','29-SEP-2020',1002,100.0, 3, 305,3,3);
+INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
+VALUES ('24-SEP-2020','25- SEP-2020','29-SEP-2020',1003,100.0, 3, 306,4,4);
+INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
+VALUES ('23-SEP-2020','26- SEP-2020','29-SEP-2020',1004,100.0, 4, 307,5,5);
+COMMIT;
+
+
+INSERT INTO ROOM_BOOKED_ENTITY (booking_id, room_id) VALUES (1001,100 );
+INSERT INTO ROOM_BOOKED_ENTITY (booking_id, room_id) VALUES (1002,101 );
+INSERT INTO ROOM_BOOKED_ENTITY (booking_id, room_id) VALUES (1003,102 );
+INSERT INTO ROOM_BOOKED_ENTITY (booking_id, room_id) VALUES (1004,103 );
+INSERT INTO ROOM_BOOKED_ENTITY (booking_id, room_id) VALUES (1000,104 );
+COMMIT;
+
+
+INSERT INTO REVIEWS (review_rating, booking_id) VALUES (5, 1000);
+INSERT INTO REVIEWS (review_rating, booking_id) VALUES (1, 1002);
+INSERT INTO REVIEWS (review_rating, booking_id) VALUES (3, 1003);
+INSERT INTO REVIEWS (review_rating, booking_id) VALUES (4, 1004);
+INSERT INTO REVIEWS (review_rating, booking_id) VALUES (5, 1001);
+COMMIT;
+
+
+
+
 
 
 
