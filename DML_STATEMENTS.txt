@@ -1,0 +1,140 @@
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('United States');
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('India');
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('Canada');
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('Mexico');
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('Chile');
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('Japan');
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('China');
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('Spain');
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('United Kingdom');
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('Belgium');
+INSERT INTO COUNTRY(COUNTRY_NAME) VALUES ('Germany');
+commit;
+
+
+
+INSERT INTO STATES(STATE_NAME, COUNTRY_ID) VALUES ('Maharashtra',2); 
+INSERT INTO STATES(STATE_NAME, COUNTRY_ID) VALUES ('Gujarat',2);
+INSERT INTO STATES(STATE_NAME, COUNTRY_ID) VALUES ('Rajasthan',2);
+INSERT INTO STATES(STATE_NAME, COUNTRY_ID) VALUES ('Massachusetts',1);
+INSERT INTO STATES(STATE_NAME, COUNTRY_ID) VALUES ('Georgia',1);
+INSERT INTO STATES(STATE_NAME, COUNTRY_ID) VALUES ('New York',1);
+INSERT INTO STATES(STATE_NAME, COUNTRY_ID) VALUES ('New Jersey',1);
+INSERT INTO STATES(STATE_NAME, COUNTRY_ID) VALUES ('Toronto',3);
+INSERT INTO STATES(STATE_NAME, COUNTRY_ID) VALUES ('Mexico City',3);
+INSERT INTO STATES(STATE_NAME, COUNTRY_ID) VALUES ('Quebec',3);
+commit;
+
+INSERT INTO CITY (CITY_NAME,STATE_ID) VALUES ('New York City',6);
+INSERT INTO CITY (CITY_NAME,STATE_ID) VALUES ('Naigara Falls',6);
+INSERT INTO CITY (CITY_NAME,STATE_ID) VALUES ('Albany',6);
+INSERT INTO CITY (CITY_NAME,STATE_ID) VALUES ('Syracuse',6);
+INSERT INTO CITY (CITY_NAME,STATE_ID) VALUES ('Mumbai',1);
+INSERT INTO CITY (CITY_NAME,STATE_ID) VALUES ('Nagpur',1);
+INSERT INTO CITY (CITY_NAME,STATE_ID) VALUES ('Pune',1);
+INSERT INTO CITY (CITY_NAME,STATE_ID) VALUES ('Nashik',1);
+commit;
+
+
+INSERT INTO TOURIST_ATTRACTIONS(TOURIST_ATTRACTION_NAME,CITY_ID) VALUES('Times Square','500');
+INSERT INTO TOURIST_ATTRACTIONS(TOURIST_ATTRACTION_NAME,CITY_ID) VALUES('Niagara Falls','501');
+INSERT INTO TOURIST_ATTRACTIONS(TOURIST_ATTRACTION_NAME,CITY_ID) VALUES('History Museum','502');
+INSERT INTO TOURIST_ATTRACTIONS(TOURIST_ATTRACTION_NAME,CITY_ID) VALUES('Erie Canal Museum','503');
+INSERT INTO TOURIST_ATTRACTIONS(TOURIST_ATTRACTION_NAME,CITY_ID) VALUES('Marine Drive','504');
+INSERT INTO TOURIST_ATTRACTIONS(TOURIST_ATTRACTION_NAME,CITY_ID) VALUES('Khindsi Lake','505');
+INSERT INTO TOURIST_ATTRACTIONS(TOURIST_ATTRACTION_NAME,CITY_ID) VALUES('Aga Khan Palace','506');
+INSERT INTO TOURIST_ATTRACTIONS(TOURIST_ATTRACTION_NAME,CITY_ID) VALUES('Ramshej Temple','507');
+INSERT INTO TOURIST_ATTRACTIONS(TOURIST_ATTRACTION_NAME,CITY_ID) VALUES('Statue of Liberty','500');
+commit;
+
+
+
+INSERT INTO BOOKING_STATUS(BOOKING_STATUS) VALUES('Pending');
+INSERT INTO BOOKING_STATUS(BOOKING_STATUS) VALUES('Completed');
+INSERT INTO BOOKING_STATUS(BOOKING_STATUS) VALUES('Cancelled');
+INSERT INTO BOOKING_STATUS(BOOKING_STATUS) VALUES('Reserved');
+INSERT INTO BOOKING_STATUS(BOOKING_STATUS) VALUES('Waitlist');
+COMMIT;
+
+INSERT INTO HOTEL_CHAIN (HOTEL_CHAIN_NAME) VALUES ('Hilton Worldwide');
+INSERT INTO HOTEL_CHAIN (HOTEL_CHAIN_NAME) VALUES ('Hyatt Inn');
+INSERT INTO HOTEL_CHAIN (HOTEL_CHAIN_NAME) VALUES ('Marriot International');
+INSERT INTO HOTEL_CHAIN (HOTEL_CHAIN_NAME) VALUES ('Radission International');
+commit;
+
+
+INSERT INTO USER_ENTITY(FIRST_NAME, LAST_NAME,EMAIL_ID,PASS_WORD, PHONE_NUMBER, tourist_attraction_id, city_id, date_joined,date_of_birth)
+VALUES ('Parth','Joshi','joshiparth15@gmail.com','njzkbq6h', 9825480969,1 ,500,CURRENT_DATE,'26-SEP-1995'); 
+INSERT INTO USER_ENTITY(FIRST_NAME, LAST_NAME,EMAIL_ID,PASS_WORD, PHONE_NUMBER, tourist_attraction_id, city_id, date_joined,date_of_birth)
+VALUES ('Prasanna','Pimparwar','prasannapimp@gmail.com','Qwerty@1212', 2013652124,1 ,504,CURRENT_DATE,'07-MAY-1996'); 
+INSERT INTO USER_ENTITY(FIRST_NAME, LAST_NAME,EMAIL_ID,PASS_WORD, PHONE_NUMBER, tourist_attraction_id, city_id, date_joined,date_of_birth)
+VALUES ('Dipti','Dubey','dubey.di@gmail.com','Grandcanyon@1212', 7854211022,2 ,503,CURRENT_DATE,'07-JUN-1975');     
+INSERT INTO USER_ENTITY(FIRST_NAME, LAST_NAME,EMAIL_ID,PASS_WORD, PHONE_NUMBER, tourist_attraction_id, city_id, date_joined,date_of_birth)
+VALUES ('Shivani','Vats','shivani.va@gmail.com','Liberty@1212', 78541256542,3 ,506,CURRENT_DATE,'07-DEC-1985'); 
+INSERT INTO USER_ENTITY(FIRST_NAME, LAST_NAME,EMAIL_ID,PASS_WORD, PHONE_NUMBER, tourist_attraction_id, city_id, date_joined,date_of_birth)
+VALUES ('Salman','Khan','salman.bhai@gmail.com','Footpath@1212', 4145256352,4 ,504,CURRENT_DATE,'26-DEC-1964'); 
+commit;
+
+INSERT INTO PAYMENT_TYPE(PAYMENT_TYPE_DESC) VALUES('Cash');
+INSERT INTO PAYMENT_TYPE(PAYMENT_TYPE_DESC) VALUES('Debit Cards');
+INSERT INTO PAYMENT_TYPE(PAYMENT_TYPE_DESC) VALUES('Credit Cards');
+INSERT INTO PAYMENT_TYPE(PAYMENT_TYPE_DESC) VALUES('GooglePay');
+INSERT INTO PAYMENT_TYPE(PAYMENT_TYPE_DESC) VALUES('NEFT');
+COMMIT;
+
+
+INSERT INTO PAYMENT(PAYMENT_TYPE_ID) VALUES('1');
+INSERT INTO PAYMENT(PAYMENT_TYPE_ID) VALUES('2');
+INSERT INTO PAYMENT(PAYMENT_TYPE_ID) VALUES('3');
+INSERT INTO PAYMENT(PAYMENT_TYPE_ID) VALUES('4');
+INSERT INTO PAYMENT(PAYMENT_TYPE_ID) VALUES('5');
+COMMIT;
+
+
+
+
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Radission',505,'Lokmat Square Sadar','10 AM','11 PM','919112082702','403','4');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Radission',506,'SB Road Pune','10 AM','11 PM','919112082702','403','4');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Radission',504,'Andheri East','10 AM','11 PM','919112082702','403','4');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Hilton',505,'Santosh Square','10 AM','11 PM','919112082702','400','5');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Hilton',506,'Koregaon Park','10 AM','11 PM','919112082702','400','5');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Hilton',504,'Navi Mumbai','10 AM','11 PM','919112082702','400','5');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Hyatt',505,'LIC Square','10 AM','11 PM','919112082702','401','5');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Hyatt',506,'Prabhat Road Pune','10 AM','11 PM','919112082702','401','5');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Hyatt',504,'Bandra east','10 AM','11 PM','919112082702','401','5');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Marriot',505,'Lokmat Square Sadar','10 AM','11 PM','919112082702','402','5');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Marriot',506,'SB Road Pune','10 AM','11 PM','919112082702','402','5');
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
+VALUES ('Marriot',504,'Andheri East','10 AM','11 PM','919112082702','402','5');
+commit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
