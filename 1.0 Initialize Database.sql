@@ -464,7 +464,42 @@ END ADMIN_ACTIONS;
 
 /
 
+create or replace PROCEDURE ADD_HOTEL(h_name varchar,star_rating number,hotel_chain_id number, city_id number,contact_no number,check_in_time varchar,check_out_time varchar, address varchar)
+AS 
+BEGIN
 
+
+  INSERT INTO HOTEL(HOTEL_NAME,STAR_RATING ,HOTEL_CHAIN_ID, CITY_ID, CONTACT_NO, CHECK_IN_TIME, CHECK_OUT_TIME,ADDRESS) VALUES(UPPER(h_name),star_rating, hotel_chain_id, city_id,contact_no, check_in_time,check_out_time,address);
+  
+COMMIT;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        dbms_output.put_line(SQLERRM);
+        dbms_output.put_line(dbms_utility.format_error_backtrace);
+        ROLLBACK;
+END ADD_HOTEL;
+
+/
+
+
+create or replace PROCEDURE ADD_ROOM(room_type_id number,hotel_id number)
+AS 
+BEGIN
+
+
+  INSERT INTO ROOM(ROOM_TYPE_ID ,HOTEL_ID) VALUES(ROOM_TYPE_ID, HOTEL_ID);
+  
+COMMIT;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        dbms_output.put_line(SQLERRM);
+        dbms_output.put_line(dbms_utility.format_error_backtrace);
+        ROLLBACK;
+END ADD_ROOM;
+
+/
 
 
 CREATE OR REPLACE PROCEDURE signup(user_name varchar,first_name varchar,last_name varchar,email_id varchar, pass_word varchar,phone_number number,tourist_attraction_id number,city_id number, date_of_birth date)
