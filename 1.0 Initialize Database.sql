@@ -449,7 +449,32 @@ INNER JOIN HOTEL h ON h.hotel_id = b.hotel_id
 INNER JOIN USER_ENTITY u ON u.user_id = b.user_id
 ORDER BY r.review_rating DESC ;
 
- 
+
+--bumbers of rooms booked by per person based on roomskbooked table 
+CREATE OR REPLACE VIEW BOOKING_DETAILS AS SELECT
+
+    rb.booking_id,
+    ue.first_name || ' ' ||
+    ue.last_name as name,
+    h.hotel_name,h.address,
+    c.city_name,
+    COUNT(rb.booking_id) AS no_of_roomsbooked
+FROM
+         room_booked_entity rb
+    JOIN booking      b ON rb.booking_id = b.booking_id
+    JOIN user_entity  ue ON b.user_id = ue.user_id
+    JOIN hotel        h ON b.hotel_id = h.hotel_id
+    JOIN CITY c ON h.city_id = c.city_id 
+GROUP BY
+    rb.booking_id,
+    ue.first_name,
+    ue.last_name,
+    h.address,
+    h.hotel_name,
+    c.city_name
+ORDER BY
+    rb.booking_id;
+
 
 CREATE OR REPLACE FORCE EDITIONABLE VIEW "ADMIN"."PAYMENT_DETAILS_USER" ("BOOKING_ID", "USER_ID", "TOTAL_ROOMS_BOOKED", "TOTAL_AMOUNT", "PAYMENT_ID", "BOOKING_STATUS") DEFAULT COLLATION "USING_NLS_COMP"  AS 
   SELECT B.BOOKING_ID, B.USER_ID, B.TOTAL_ROOMS_BOOKED, B.TOTAL_AMOUNT,B.PAYMENT_ID, BS.BOOKING_STATUS

@@ -49,12 +49,11 @@ commit;
 
 
 
-INSERT INTO BOOKING_STATUS(BOOKING_STATUS) VALUES('Pending');
 INSERT INTO BOOKING_STATUS(BOOKING_STATUS) VALUES('Completed');
 INSERT INTO BOOKING_STATUS(BOOKING_STATUS) VALUES('Cancelled');
 INSERT INTO BOOKING_STATUS(BOOKING_STATUS) VALUES('Reserved');
-INSERT INTO BOOKING_STATUS(BOOKING_STATUS) VALUES('Waitlist');
 COMMIT;
+
 
 INSERT INTO HOTEL_CHAIN (HOTEL_CHAIN_NAME) VALUES ('Hilton Worldwide');
 INSERT INTO HOTEL_CHAIN (HOTEL_CHAIN_NAME) VALUES ('Hyatt Inn');
@@ -63,17 +62,6 @@ INSERT INTO HOTEL_CHAIN (HOTEL_CHAIN_NAME) VALUES ('Radission International');
 commit;
 
 
-INSERT INTO USER_ENTITY(FIRST_NAME, LAST_NAME,EMAIL_ID,PASS_WORD, PHONE_NUMBER, tourist_attraction_id, city_id, date_joined,date_of_birth)
-VALUES ('Parth','Joshi','joshiparth15@gmail.com','njzkbq6h', 9825480969,1 ,500,CURRENT_DATE,'26-SEP-1995'); 
-INSERT INTO USER_ENTITY(FIRST_NAME, LAST_NAME,EMAIL_ID,PASS_WORD, PHONE_NUMBER, tourist_attraction_id, city_id, date_joined,date_of_birth)
-VALUES ('Prasanna','Pimparwar','prasannapimp@gmail.com','Qwerty@1212', 2013652124,1 ,504,CURRENT_DATE,'07-MAY-1996'); 
-INSERT INTO USER_ENTITY(FIRST_NAME, LAST_NAME,EMAIL_ID,PASS_WORD, PHONE_NUMBER, tourist_attraction_id, city_id, date_joined,date_of_birth)
-VALUES ('Dipti','Dubey','dubey.di@gmail.com','Grandcanyon@1212', 7854211022,2 ,503,CURRENT_DATE,'07-JUN-1975');     
-INSERT INTO USER_ENTITY(FIRST_NAME, LAST_NAME,EMAIL_ID,PASS_WORD, PHONE_NUMBER, tourist_attraction_id, city_id, date_joined,date_of_birth)
-VALUES ('Shivani','Vats','shivani.va@gmail.com','Liberty@1212', 78541256542,3 ,506,CURRENT_DATE,'07-DEC-1985'); 
-INSERT INTO USER_ENTITY(FIRST_NAME, LAST_NAME,EMAIL_ID,PASS_WORD, PHONE_NUMBER, tourist_attraction_id, city_id, date_joined,date_of_birth)
-VALUES ('Salman','Khan','salman.bhai@gmail.com','Footpath@1212', 4145256352,4 ,504,CURRENT_DATE,'26-DEC-1964'); 
-commit;
 
 INSERT INTO PAYMENT_TYPE(PAYMENT_TYPE_DESC) VALUES('Cash');
 INSERT INTO PAYMENT_TYPE(PAYMENT_TYPE_DESC) VALUES('Debit Cards');
@@ -162,15 +150,15 @@ COMMIT;
 
 
 INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
-VALUES ('26-SEP-2020','27- SEP-2020','29-SEP-2020',1000,100.0, 1, 303,1,1);
+VALUES ('26-SEP-2020','27- SEP-2020','29-SEP-2020',1000,100.0, 1, 303,2,1);
 INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
-VALUES ('25-SEP-2020','26- SEP-2020','28-SEP-2020',1001,100.0, 1, 304,2,2);
+VALUES ('25-SEP-2020','26- SEP-2020','28-SEP-2020',1001,100.0, 1, 304,2,1);
 INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
-VALUES ('24-SEP-2020','25- SEP-2020','29-SEP-2020',1002,100.0, 3, 305,3,3);
+VALUES ('24-SEP-2020','25- SEP-2020','29-SEP-2020',1002,100.0, 3, 305,3,1);
 INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
-VALUES ('24-SEP-2020','25- SEP-2020','29-SEP-2020',1003,100.0, 3, 306,4,4);
+VALUES ('24-SEP-2020','25- SEP-2020','29-SEP-2020',1003,100.0, 3, 306,3,3);
 INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
-VALUES ('23-SEP-2020','26- SEP-2020','29-SEP-2020',1004,100.0, 4, 307,5,5);
+VALUES ('23-SEP-2020','26- SEP-2020','29-SEP-2020',1004,100.0, 4, 307,3,3);
 COMMIT;
 
 
@@ -180,15 +168,6 @@ INSERT INTO ROOM_BOOKED_ENTITY (booking_id, room_id) VALUES (1003,102 );
 INSERT INTO ROOM_BOOKED_ENTITY (booking_id, room_id) VALUES (1004,103 );
 INSERT INTO ROOM_BOOKED_ENTITY (booking_id, room_id) VALUES (1000,104 );
 COMMIT;
-
-
-INSERT INTO REVIEWS (review_rating, booking_id) VALUES (5, 1000);
-INSERT INTO REVIEWS (review_rating, booking_id) VALUES (1, 1002);
-INSERT INTO REVIEWS (review_rating, booking_id) VALUES (3, 1003);
-INSERT INTO REVIEWS (review_rating, booking_id) VALUES (4, 1004);
-INSERT INTO REVIEWS (review_rating, booking_id) VALUES (5, 1001);
-COMMIT;
-
 
 
 
