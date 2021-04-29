@@ -1,3 +1,8 @@
+--1 searching all hotels
+
+select * from hotel; 
+
+--2 searching hotels on the basis of tourist_attraction_name 
 
  
 
