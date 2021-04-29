@@ -11,11 +11,11 @@ SELECT
     c.city_name,
     COUNT(rb.booking_id) AS no_of_roomsbooked
 FROM
-         room_booked_entity rb
-    JOIN booking      b ON rb.booking_id = b.booking_id
-    JOIN user_entity  ue ON b.user_id = ue.user_id
-    JOIN hotel        h ON b.hotel_id = h.hotel_id
-    JOIN CITY c ON h.city_id = c.city_id 
+         admin.room_booked_entity rb
+    JOIN admin.booking      b ON rb.booking_id = b.booking_id
+    JOIN admin.user_entity  ue ON b.user_id = ue.user_id
+    JOIN admin.hotel        h ON b.hotel_id = h.hotel_id
+    JOIN admin.CITY c ON h.city_id = c.city_id 
 GROUP BY
     rb.booking_id,
     ue.first_name,
@@ -36,11 +36,11 @@ SELECT
     c.city_name,
     rb.room_id As room_number
 FROM
-         room_booked_entity rb
-    JOIN booking      b ON rb.booking_id = b.booking_id
-    JOIN user_entity  ue ON b.user_id = ue.user_id
-    JOIN hotel        h ON b.hotel_id = h.hotel_id
-    JOIN CITY c ON h.city_id = c.city_id
+         admin.room_booked_entity rb
+    JOIN admin.booking      b ON rb.booking_id = b.booking_id
+    JOIN admin.user_entity  ue ON b.user_id = ue.user_id
+    JOIN admin.hotel        h ON b.hotel_id = h.hotel_id
+    JOIN admin.CITY c ON h.city_id = c.city_id
 ORDER BY
     rb.booking_id;    
 
