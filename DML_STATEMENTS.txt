@@ -118,6 +118,7 @@ VALUES ('Marriot',506,'SB Road Pune','10 AM','11 PM','919112082702','402','5');
 INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
 VALUES ('Marriot',504,'Andheri East','10 AM','11 PM','919112082702','402','5');
 commit;
+INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
 VALUES ('Marriot',501,'NYC central','10 AM','11 PM','919112082702','402','5');
 INSERT INTO HOTEL (hotel_name,city_id,address,check_in_time,check_out_time,contact_no,hotel_chain_id,star_rating)
 VALUES ('Hyatt',501,'Manhattarn','10 AM','11 PM','919112082702','401','5');
