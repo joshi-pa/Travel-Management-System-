@@ -4,6 +4,18 @@ BEGIN
 admin.help;
 END;
 
+
+BEGIN
+admin.USER_ACTIONS;
+END;
+
+BEGIN
+admin.ADMIN_ACTIONS;
+END;
+
+
+
+
 BEGIN
 admin.signup('sachin','Sachin','Tendulkar','sach1in@gmail.com','Cricket123456',7894561455,1,500,'26-oct-1964');
 END;

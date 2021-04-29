@@ -592,7 +592,7 @@ ELSE
   COMMIT;
   SELECT USER_ID INTO uid FROM user_entity WHERE USERNAME=UPPER(user_name);
   dbms_output.put_line(uid);
-  EXECUTE IMMEDIATE 'GRANT EXECUTE ON ALL_ACTIONS TO '||user_name;
+--  EXECUTE IMMEDIATE 'GRANT EXECUTE ON ALL_ACTIONS TO '||user_name;
   dbms_output.put_line('all user actions granted');
   
 
