@@ -386,7 +386,7 @@ BEGIN
         dbms_output.put_line('START USING THIS APPLICATION BY SIGNING UP !');
         dbms_output.put_line('EXECUTE THE BELOW PROCEDURE WITH THE SPECIFIED PARAMETERS IN AN ANONYMOUS PL/SQL BLOCK AS FOLLOWS');
         dbms_output.put_line('SIGnUP(first_name varchar,last_name varchar,email_id varchar, pass_word varchar,phone_number number,tourist_attraction_id number,city_id number, date_of_birth date)');
-        dbms_output.put_line('AFTER LOGGING IN EXECUTE ALL_ACTIONS TO SEE THE MENU OF HOTEL BOOKING');
+        dbms_output.put_line('AFTER LOGGING IN EXECUTE USER_ACTIONS AND ADMIN_ACTIONS TO GUIDE THROUGH THE APPLICATION');
 
 EXCEPTION
     WHEN OTHERS THEN
@@ -537,6 +537,41 @@ END SIGNUP;
 
 /
 
+create or replace PROCEDURE book_hotel(b_date date, u_id number,checkindate date,checkoutdate date,p_id number, hotel_id number,t_amount number , t_rooms_booked number, b_status_id number, P_TYPE_ID NUMBER, R_ID NUMBER )
+IS
+BID NUMBER;
+
+
+BEGIN
+
+
+INSERT INTO PAYMENT (payment_id, payment_type_id) 
+VALUES (p_id,P_TYPE_ID);
+commit;
+
+
+
+INSERT INTO BOOKING (booking_date, check_in_date, check_out_date, payment_id, total_amount, total_rooms_booked, hotel_id, user_id, booking_status_id) 
+VALUES (b_date,checkindate ,checkoutdate,p_id,t_amount,t_rooms_booked,hotel_id, u_id,b_status_id);
+commit;
+
+SELECT BOOKING_ID INTO BID FROM BOOKING WHERE  USER_ID = u_id ORDER BY BOOKING_ID DESC FETCH FIRST 1 ROW ONLY ;
+INSERT INTO ROOM_BOOKED_ENTITY (booking_id, room_id) 
+VALUES (BID, R_ID );
+
+
+COMMIT;
+EXCEPTION
+    WHEN OTHERS THEN
+        dbms_output.put_line(SQLERRM);
+        rollback;
+        raise;
+END book_hotel;
+/
+
+
+
+
 GRANT EXECUTE ON HELP TO NEW_CLIENT;
 GRANT EXECUTE ON SIGNUP TO NEW_CLIENT;
 
@@ -558,7 +593,7 @@ CID number;
 BEGIN
 dbms_output.put_line(USER);
 
-select BOOKING_ID into CID from BOOKING where USER_ID=U_ID;
+select BOOKING_ID into CID from BOOKING where USER_ID=U_ID ORDER BY BOOKING_ID DESC FETCH FIRST 1 ROW ONLY;
 dbms_output.put_line(CID);
 INSERT INTO REVIEWS(REVIEW_RATING,BOOKING_ID,REVIEW_DESC) VALUES(REVIEW_RATING,CID,REVIEW_DESC);
 COMMIT;
@@ -573,15 +608,12 @@ PROCEDURE DELETE_EXISTING_REVIEW(R_ID NUMBER)
 AS
 UID number;
 BEGIN
---dbms_output.put_line(USER);
---select REVIEW_ID into UID from USER_REVIEWS where USER_ID=USER;
---dbms_output.put_line(UID);
 DELETE FROM REVIEWS WHERE REVIEW_ID=R_ID;
 COMMIT;
 EXCEPTION
     WHEN OTHERS THEN
         dbms_output.put_line(SQLERRM);
-        dbms_output.put_line('Please provide the correct values according to the signature given in ALL_ACTIONS..Ensure that the address ID blongs to you');
+        dbms_output.put_line('');
         rollback;
         raise;
 END DELETE_EXISTING_REVIEW;
