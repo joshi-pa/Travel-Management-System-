@@ -50,9 +50,21 @@ begin
 admin.Add_HOTEL('Marriot',5,400,501,7898989898,'11 AM', '12 PM', 'NEW YORK CITY');
 End;
 
--- adding rooms
 
 begin
-admin.ADD_ROOM(101,306);
+admin.Add_HOTEL('Holiday Inn',5,400,500,7898989898,'11 AM', '12 PM', 'NEW YORK CITY');
 End;
 
+-- adding rooms
+-- adding 2 single rooms 
+begin
+admin.ADD_ROOM(100,306);
+End;
+
+begin
+admin.ADD_ROOM(100,306);
+End;
+--- adding a luxury suite in hotel
+begin
+admin.ADD_ROOM(103,306);
+End;
