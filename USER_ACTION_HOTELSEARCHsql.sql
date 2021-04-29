@@ -4,7 +4,11 @@ select * from hotel;
 
 --2 searching hotels on the basis of tourist_attraction_name 
 
- 
+ SELECT  c.city_name, h.* FROM tourist_attractions t
+INNER JOIN city c ON t.city_id = c.city_id
+INNER JOIN hotel h ON c.city_id = h.city_id
+where t.tourist_attraction_name ='Marine Drive'; 
+
 
 ------------3 
 SELECT * FROM ADMIN.HOTEL WHERE CITY_ID = (SELECT CITY_ID FROM ADMIN.USER_ENTITY WHERE USERNAME = 'SACHIN');
