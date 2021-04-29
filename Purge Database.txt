@@ -1,0 +1,30 @@
+SET SERVEROUTPUT ON;
+drop table "BOOKING" cascade constraints PURGE;
+drop table "BOOKING_STATUS" cascade constraints PURGE;
+drop table "CITY" cascade constraints PURGE;
+drop table "HOTEL" cascade constraints PURGE;
+drop table "HOTEL_CHAIN" cascade constraints PURGE;
+drop table "PAYMENT" cascade constraints PURGE;
+drop table "PAYMENT_TYPE" cascade constraints PURGE;
+drop table "REVIEWS" cascade constraints PURGE;
+drop table "ROOM" cascade constraints PURGE;
+drop table "ROOM_BOOKED_ENTITY" cascade constraints PURGE;
+drop table "ROOM_TYPE" cascade constraints PURGE;
+drop table "STATES" cascade constraints PURGE;
+drop table "TOURIST_ATTRACTIONS" cascade constraints PURGE;
+drop table "USER_ENTITY" cascade constraints PURGE;
+drop table "COUNTRY" cascade constraints PURGE;
+
+
+
+CREATE ROLE DB_CUSTOMERS;
+
+DROP ROLE DB_CLIENT;
+
+DROP USER NEW_CLIENT;
+
+
+
+drop user SACHIN;
+drop user IRFAN;
+drop user DANIEL;
