@@ -440,6 +440,45 @@ EXCEPTION
         ROLLBACK;
 END USER_ACTIONS;
 /
+------ USER REVIEWS VIEW 
+CREATE OR REPLACE VIEW USER_REVIEWS AS
+SELECT u.first_name, u.last_name, h.hotel_name, r.review_id, r.review_rating, b.booking_id, b.user_id, b.hotel_id
+FROM REVIEWS r
+INNER JOIN BOOKING b ON r.booking_id = b.booking_id
+INNER JOIN HOTEL h ON h.hotel_id = b.hotel_id
+INNER JOIN USER_ENTITY u ON u.user_id = b.user_id
+ORDER BY r.review_rating DESC ;
+
+-------- triggers for not allowing updates and deletes in views--------
+
+
+
+CREATE OR REPLACE  TRIGGER before_user_reviews_delete
+
+INSTEAD OF DELETE ON user_reviews
+BEGIN
+    raise_application_error(-20001,'Records can not be deleted');
+END;
+/
+
+CREATE OR REPLACE  TRIGGER before_user_reviews_update
+
+INSTEAD OF UPDATE ON user_reviews
+BEGIN
+    raise_application_error(-20001,'Records can not be deleted');
+END;
+/
+
+
+
+------------ AVAILABLE ROOMS
+
+CREATE OR REPLACE VIEW AVAILABILITY_VIEW AS 
+SELECT h.* , r.room_id, rt.*  FROM hotel h
+INNER JOIN room r ON r.hotel_id = h.hotel_id
+INNER JOIN room_type rt ON r.room_type_id = rt.room_type_id
+WHERE r.room_id NOT IN (SELECT room_booked_id FROM room_booked_entity);
+
 
 
 CREATE OR REPLACE PROCEDURE ADMIN_ACTIONS
@@ -620,6 +659,7 @@ END DELETE_EXISTING_REVIEW;
 
 END REVIEWS_RATING;
 /
+
 
 
 
